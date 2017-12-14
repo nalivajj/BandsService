@@ -35,6 +35,9 @@ public class Band {
             inverseJoinColumns =  @JoinColumn(name = "subscribed_user_id"))
     private List<User> subscribedUsers;
 
+    @OneToMany(mappedBy = "band")
+    private List<BandRating> bandRatings;
+
     public int getId() {
         return id;
     }
