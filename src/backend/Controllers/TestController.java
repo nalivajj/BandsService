@@ -1,6 +1,6 @@
 package backend.Controllers;
 
-import org.springframework.stereotype.Controller;
+import backend.Entities.Band;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
     @RequestMapping(value = "/first")
-    public String testRun(){
-        return "Hello world";
+    public Band testRun(){
+        Band band = new Band();
+        band.setId(1);
+        band.setMembers("Andriy");
+        return band;
     }
 }

@@ -1,20 +1,21 @@
 package backend;
 
+import backend.Entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import backend.Entities.*;
+
 public class TestHibernate {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
-                .configure("backend/resources/hibernate.cfg.xml")
+                .configure("resources/hibernate.cfg.xml")
                 .addAnnotatedClass(Band.class)
-                .addAnnotatedClass(Concert.class)
+                .addAnnotatedClass(BandPhoto.class)
                 .addAnnotatedClass(MessageAboutTour.class)
-                .addAnnotatedClass(Photo.class)
-                .addAnnotatedClass(TopList.class)
+                .addAnnotatedClass(Performance.class)
                 .addAnnotatedClass(Tour.class)
                 .addAnnotatedClass(TourDetailPlace.class)
-                .addAnnotatedClass(Users.class)
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(UserPhoto.class)
                 .buildSessionFactory();
         sessionFactory.close();
     }
