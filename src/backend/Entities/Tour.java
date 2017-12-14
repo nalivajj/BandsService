@@ -26,6 +26,9 @@ public class Tour {
     @OneToMany(mappedBy = "tour")
     private List<MessageAboutTour> messagesAboutTour;
 
+    @OneToMany(mappedBy = "tour")
+    private List<TourRating> tourRatings;
+
     public int getId() {
         return id;
     }
@@ -72,6 +75,14 @@ public class Tour {
 
     public void setMessagesAboutTour(List<MessageAboutTour> messagesAboutTour) {
         this.messagesAboutTour = messagesAboutTour;
+    }
+
+    public List<TourRating> getTourRatings() {
+        return tourRatings;
+    }
+
+    public void setTourRatings(List<TourRating> tourRatings) {
+        this.tourRatings = tourRatings;
     }
 }
 

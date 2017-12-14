@@ -1,6 +1,7 @@
 package backend.Entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Performance {
@@ -18,6 +19,9 @@ public class Performance {
     @ManyToOne
     @JoinColumn(name = "tour_detail_place_id")
     private TourDetailPlace tourDetailPlace;
+
+    @OneToMany(mappedBy = "performance")
+    private List<PerformanceRating> performanceRatings;
 
     public int getId() {
         return id;
@@ -49,5 +53,13 @@ public class Performance {
 
     public void setTourDetailPlace(TourDetailPlace tourDetailPlace) {
         this.tourDetailPlace = tourDetailPlace;
+    }
+
+    public List<PerformanceRating> getPerformanceRatings() {
+        return performanceRatings;
+    }
+
+    public void setPerformanceRatings(List<PerformanceRating> performanceRatings) {
+        this.performanceRatings = performanceRatings;
     }
 }

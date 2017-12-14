@@ -34,6 +34,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<MessageAboutTour> messagesAboutTour;
 
+    @OneToMany(mappedBy = "user")
+    private List<BandRating> bandRatings;
+
+    @OneToMany(mappedBy = "user")
+    private List<PerformanceRating> performanceRatings;
+
+    @OneToMany(mappedBy = "user")
+    private List<TourRating> tourRatings;
+
     public int getId() {
         return id;
     }
@@ -104,5 +113,29 @@ public class User {
 
     public void setMessagesAboutTour(List<MessageAboutTour> messagesAboutTour) {
         this.messagesAboutTour = messagesAboutTour;
+    }
+
+    public List<BandRating> getBandRatings() {
+        return bandRatings;
+    }
+
+    public void setBandRatings(List<BandRating> bandRatings) {
+        this.bandRatings = bandRatings;
+    }
+
+    public List<PerformanceRating> getPerformanceRatings() {
+        return performanceRatings;
+    }
+
+    public void setPerformanceRatings(List<PerformanceRating> performanceRatings) {
+        this.performanceRatings = performanceRatings;
+    }
+
+    public List<TourRating> getTourRatings() {
+        return tourRatings;
+    }
+
+    public void setTourRatings(List<TourRating> tourRatings) {
+        this.tourRatings = tourRatings;
     }
 }
