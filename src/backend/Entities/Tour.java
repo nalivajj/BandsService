@@ -2,10 +2,8 @@ package backend.Entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-/**
- * Created by naliv on 12.12.2017.
- */
 @Entity
 public class Tour {
     @Id
@@ -17,4 +15,63 @@ public class Tour {
 
     @Column(name = "date_of_end")
     private Date dateOfEnd;
+
+    @OneToMany(mappedBy = "tour")
+    private List<TourDetailPlace> tourDetailPlaces;
+
+    @ManyToOne
+    @JoinColumn(name = "band_id")
+    private Band band;
+
+    @OneToMany(mappedBy = "tour")
+    private List<MessageAboutTour> messagesAboutTour;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getDateOfStart() {
+        return dateOfStart;
+    }
+
+    public void setDateOfStart(Date dateOfStart) {
+        this.dateOfStart = dateOfStart;
+    }
+
+    public Date getDateOfEnd() {
+        return dateOfEnd;
+    }
+
+    public void setDateOfEnd(Date dateOfEnd) {
+        this.dateOfEnd = dateOfEnd;
+    }
+
+    public List<TourDetailPlace> getTourDetailPlaces() {
+        return tourDetailPlaces;
+    }
+
+    public void setTourDetailPlaces(List<TourDetailPlace> tourDetailPlaces) {
+        this.tourDetailPlaces = tourDetailPlaces;
+    }
+
+    public Band getBand() {
+        return band;
+    }
+
+    public void setBand(Band band) {
+        this.band = band;
+    }
+
+    public List<MessageAboutTour> getMessagesAboutTour() {
+        return messagesAboutTour;
+    }
+
+    public void setMessagesAboutTour(List<MessageAboutTour> messagesAboutTour) {
+        this.messagesAboutTour = messagesAboutTour;
+    }
 }
+
